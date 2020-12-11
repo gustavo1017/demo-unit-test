@@ -24,7 +24,7 @@ public class CommentController {
     @Autowired
     private CommentService commentService;
 
-    @GetMapping
+    @PostMapping
     public ResponseEntity findAll(){
         List<Comment> currentComments = new ArrayList<>();
         try{

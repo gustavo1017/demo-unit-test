@@ -23,12 +23,13 @@ public class CommentController {
 
     @Autowired
     private CommentService commentService;
-
+    @Autowired
+    private RestTemplate restTemplate;
     @PostMapping
     public ResponseEntity findAll(){
         List<Comment> currentComments = new ArrayList<>();
         try{
-            RestTemplate restTemplate = new RestTemplate();
+
         ResponseEntity<String> comments = restTemplate.getForEntity("https://jsonplaceholder.typicode.com/comments", String.class);
 
             currentComments = commentService.restructure(comments.getBody());
